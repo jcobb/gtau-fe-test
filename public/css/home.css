@@ -1,0 +1,19 @@
+.home__container {
+    display: flex;
+    justify-content: center;
+    background: var(--color-page-bg);
+    width: 100vw;
+}
+
+.home__content {
+    background: var(--color-content-bg);
+    min-height: 100vh;
+    width: calc(100% - var(--spacing-x4));
+    padding: var(--spacing-x2);
+}
+
+@media (min-width: 1200px) {
+    .home__content {
+        width: 1200px;
+    }
+}
