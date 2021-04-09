@@ -1,5 +1,14 @@
 var shuffle = require("shuffle-array");
 
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+function randomNumber(min, max){
+    const r = Math.random() * (max - min) + min;
+    return Math.floor(r);
+}
+
 const data = [
     {
         title: "2005 Ferrari F430 Convertible",
@@ -52,9 +61,17 @@ const data = [
 ];
 
 export default (req, res) => {
-    const remove = Math.floor(Math.random() * Math.floor(6));
-    const response = shuffle(data, { copy: true }).splice(0, remove);
+    const artificialDelay = randomNumber(100, 3000);
+    const requestWillArtificiallyFail = randomNumber(0, 11) === 10;
 
-    res.statusCode = 200;
-    res.json(response);
+    return sleep(artificialDelay).then(() => {
+        if (requestWillArtificiallyFail) {
+            res.statusCode = 500;
+            res.end()
+        } else {
+            const response = shuffle(data, { copy: true }).splice(0, randomNumber(0, 6));
+            res.statusCode = 200;
+            res.json(response);
+        }
+    });
 };
