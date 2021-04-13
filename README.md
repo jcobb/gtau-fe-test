@@ -22,7 +22,7 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 You’ll need Node.js version `10.13` or later, a text editor and terminal app for this task.
 
-- Download the `gtau-fe-test.zip` and extract the contents
+- Either clone this repository or download the `gtau-fe-test.zip` and extract the contents
 - Navigate to the `gtau-fe-test` directory in your terminal
 - Install the dependencies `npm install`
 - Start the development server `npm run dev`
@@ -61,5 +61,6 @@ You do not need to use anything but plain ol' CSS for styling. There are some ro
 ## Tips
 
 -   Even though the API is a mock, treat it as you would a production API. What happens when there are no results? Or the request fails?
+-   The API server is temperamental - 10% of the time it will return an error, and may take up to 3 seconds to return a response. Make sure the Frontend can handle it!
 -   This isn't _just_ a Javascript test. The HTML structure of your component and the CSS layout are equally important.
 -   Dont try to do too much! A simple, clean solution that _works_ is looked at more favourably than an complex one that does not.
